@@ -50,21 +50,21 @@ func NewLexIdlHandler(
 	return handler, nil
 }
 
-func NewLexIdlHandlerFromFileName(
-	fileName string,
-	definedDefinitions []string) (*Handler, error) {
-	f, e := os.Open(fileName)
-	if e != nil {
-		return nil, e
-	}
-
-	fileInformation := yaccToken.NewFileInformation()
-	return NewLexIdlHandler(
-		fileName,
-		definedDefinitions,
-		gocommon.NewByteReaderWithCloser(f, bufio.NewReaderSize(f, 4096)),
-		fileInformation)
-}
+//func NewLexIdlHandlerFromFileName(
+//	fileName string,
+//	definedDefinitions []string) (*Handler, error) {
+//	f, e := os.Open(fileName)
+//	if e != nil {
+//		return nil, e
+//	}
+//
+//	fileInformation := yaccToken.NewFileInformation()
+//	return NewLexIdlHandler(
+//		fileName,
+//		definedDefinitions,
+//		gocommon.NewByteReaderWithCloser(f, bufio.NewReaderSize(f, 4096)),
+//		fileInformation)
+//}
 
 func NewLexIdlHandlerFromData(streamName, s string, definedDefinitions []string) (*Handler, error) {
 	fileInformation := yaccToken.NewFileInformation()
